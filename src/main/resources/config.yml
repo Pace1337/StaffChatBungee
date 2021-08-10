@@ -1,0 +1,12 @@
+# StaffChatBungee Configuration.
+
+# Permission to chat: staffchatbungee.command
+# Command: /sc <message>
+# Placeholders: %server%, %msg%, %author%, %prefix%
+
+prefix: '&7[&eStaffChat&7]'
+no-message: '&cIncorrect usage! &7Usage is &c/sc <message>' # When a staff enters the command, but without any message
+staffchat-format: '%prefix% &7[&e%server%&7] &f%author%: %msg%'
+no-permission: '&cYou do not have permission to do that!'
+
+# If you encounter any issues or need any help please contact the plugin developer.

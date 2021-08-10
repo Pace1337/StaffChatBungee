@@ -1,0 +1,4 @@
+name: StaffChatBungee
+version: ${project.version}
+main: dev.pace.staffchatbungee.StaffChatBungee
+author: Pace
