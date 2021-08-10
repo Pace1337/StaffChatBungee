@@ -24,9 +24,10 @@ public class StaffChatCommand extends Command {
         } else if (args.length == 0 || args[0] == null) {
             sender.sendMessage(this.staffchatbungee.getMsg("no-message"));
         } else {
-            StringBuilder staffchat = new StringBuilder(); {
-            staffchat.append(String.join(" ", args));
-        }
+            StringBuilder staffchat = new StringBuilder();
+            {
+                staffchat.append(String.join(" ", args));
+            }
 
             final HashMap<String, String> sc = new HashMap<>();
             sc.put("%prefix%", StaffChatBungee.instance.config.getString("prefix"));

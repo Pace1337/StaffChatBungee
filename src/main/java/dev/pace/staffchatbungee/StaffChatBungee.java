@@ -2,6 +2,7 @@ package dev.pace.staffchatbungee;
 
 import dev.pace.staffchatbungee.commands.StaffChatCommand;
 import dev.pace.staffchatbungee.commands.StaffChatReload;
+import dev.pace.staffchatbungee.metrics.Metrics;
 import dev.pace.staffchatbungee.utils.Utils;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
@@ -21,8 +22,7 @@ public final class StaffChatBungee extends Plugin {
         StaffChatBungee.instance = this;
         try {
             this.loadConfig();
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             this.getLogger().log(Level.SEVERE, "An error occurred while loading the configuration", ex);
         }
     }
@@ -31,6 +31,8 @@ public final class StaffChatBungee extends Plugin {
     public void onEnable() {
         this.getProxy().getPluginManager().registerCommand(this, new StaffChatReload());
         this.getProxy().getPluginManager().registerCommand(this, new StaffChatCommand());
+        int pluginId = 12390; // Metrics.
+        Metrics metrics = new Metrics(this, pluginId);
     }
 
     public String getMsg(final String name) {
@@ -48,6 +50,7 @@ public final class StaffChatBungee extends Plugin {
         }
         this.config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File(this.getDataFolder(), "config.yml"));
     }
+
     public static StaffChatBungee getInstance() {
         return instance;
     }

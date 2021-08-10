@@ -9,13 +9,16 @@ import java.util.logging.Level;
 
 public class StaffChatReload extends Command {
 
+    private final StaffChatBungee staffchatbungee;
+
     public StaffChatReload() {
         super("screload");
+        this.staffchatbungee = StaffChatBungee.instance;
     }
 
     public void execute(final CommandSender sender, final String[] args) {
         if (!sender.hasPermission("staffchatbungee.admin")) {
-            sender.sendMessage(StaffChatBungee.instance.config.getString("no-permission"));
+            sender.sendMessage(this.staffchatbungee.getMsg("no-permission"));
             return;
         }
         try {
