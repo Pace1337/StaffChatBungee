@@ -14,7 +14,7 @@ public class StaffChatCommand extends Command {
     private final StaffChatBungee staffchatbungee;
 
     public StaffChatCommand() {
-        super("sc", null, "staffchat");
+        super("sc", "staffchatbungee.command", "staffchat");
         this.staffchatbungee = StaffChatBungee.instance;
     }
 

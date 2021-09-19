@@ -19,6 +19,7 @@ public final class StaffChatBungee extends Plugin {
     public static StaffChatBungee instance;
 
     public void onLoad() {
+        // Load the config.
         StaffChatBungee.instance = this;
         try {
             this.loadConfig();
@@ -29,10 +30,12 @@ public final class StaffChatBungee extends Plugin {
 
     @Override
     public void onEnable() {
+        // Load all staff chat commands.
         this.getProxy().getPluginManager().registerCommand(this, new StaffChatReload());
         this.getProxy().getPluginManager().registerCommand(this, new StaffChatCommand());
-        int pluginId = 12390; // Metrics.
-        Metrics metrics = new Metrics(this, pluginId);
+        // Load metrics.
+        int pluginId = 12390;
+        new Metrics(this, pluginId);
     }
 
     public String getMsg(final String name) {
@@ -49,9 +52,5 @@ public final class StaffChatBungee extends Plugin {
             Files.copy(in, file.toPath(), new CopyOption[0]);
         }
         this.config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File(this.getDataFolder(), "config.yml"));
-    }
-
-    public static StaffChatBungee getInstance() {
-        return instance;
     }
 }
